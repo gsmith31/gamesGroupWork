@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOne", "GameOne\GameOne\GameOne.csproj", "{FCAC30E7-5DB7-4002-9C7B-C8647138A93B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeThree", "GameOne\GameOne\ChallengeThree.csproj", "{FCAC30E7-5DB7-4002-9C7B-C8647138A93B}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "GameOneContent", "GameOne\GameOneContent\GameOneContent.contentproj", "{14C8BD84-2B6C-4D45-931A-D00948CFE959}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeThreeContent", "GameOne\GameOneContent\ChallengeThreeContent.contentproj", "{14C8BD84-2B6C-4D45-931A-D00948CFE959}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

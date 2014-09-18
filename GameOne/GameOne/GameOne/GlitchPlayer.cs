@@ -32,7 +32,7 @@ namespace GameOne
         static CollisionOffset glitchCollisionOffset = new CollisionOffset(35, 0, 80, 80);
         static Vector2 glitchSpeed = new Vector2(64, 32);
         static Vector2 glitchFriction = new Vector2(0.8f, 1f);
-        static Point glitchFrameSize = new Point(192, 160);
+        static Point glitchFrameSize = new Point(102, 122);
 
         // constructor
         public GlitchPlayer(Texture2D image)
@@ -43,8 +43,8 @@ namespace GameOne
             // set the segments and frame size
             spriteSheet.addSegment(glitchFrameSize, new Point(0, 0), new Point(11,0), 20);
             spriteSheet.addSegment(glitchFrameSize, new Point(0, 1), new Point(18, 1), 50);
-            spriteSheet.addSegment(glitchFrameSize, new Point(0, 2), new Point(8, 3), 40);
-            spriteSheet.addSegment(glitchFrameSize, new Point(0, 4), new Point(20, 5), 50);
+            spriteSheet.addSegment(glitchFrameSize, new Point(0, 2), new Point(33, 2), 40);
+            spriteSheet.addSegment(glitchFrameSize, new Point(0, 4), new Point(2, 5), 50);
 
             // define the states
             states = new AbstractState[NUM_STATES];

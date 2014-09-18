@@ -13,8 +13,8 @@ import javax.imageio.ImageIO;
 
 public class GlitchStitch {
 	
-	private static final String[] FILE_NAMES = {"demon_base.png", 
-		"demon_climb.png", "demon_jump.png", "demon_sleep.png"};
+	private static final String[] FILE_NAMES = {"base.png", 
+		"climb.png", "jump.png", "sleep.png"};
 	private static final int[] FRAMES_WIDE = {15, 19, 33, 21};
 	private static final int[] FRAMES_TALL = {1, 1, 1, 2};
 
