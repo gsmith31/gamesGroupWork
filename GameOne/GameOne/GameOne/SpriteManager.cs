@@ -20,6 +20,7 @@ namespace GameOne
         SpriteBatch spriteBatch;
         Sprite player;
         List<Sprite> spriteList = new List<Sprite>();
+        Texture2D backgroundTexture;
 
         public SpriteManager(Game game)
             : base(game)
@@ -43,8 +44,11 @@ namespace GameOne
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
             player = new GlitchPlayer(Game.Content.Load<Texture2D>(@"Images/result"));
-            //spriteList.Add(new Chicken(Game.Content.Load<Texture2D>(@"Images/chicken_walk")));
             spriteList.Add(new Platform(Game.Content.Load<Texture2D>(@"Images/platform")));
+            spriteList.Add(new Platform2(Game.Content.Load<Texture2D>(@"Images/platform")));
+            spriteList.Add(new Platform3(Game.Content.Load<Texture2D>(@"Images/platform")));
+
+            //backgroundTexture = Game.Content.Load<Texture2D>("@Images/background");
 
             base.LoadContent();
         }

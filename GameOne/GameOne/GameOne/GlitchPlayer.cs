@@ -28,7 +28,7 @@ namespace GameOne
         AbstractState[] states;
 
         // constants for this particular sprite
-        static Point glitchNumberOfFrames = new Point(21, 6);
+        static Point glitchNumberOfFrames = new Point(40, 3);
         static CollisionOffset glitchCollisionOffset = new CollisionOffset(35, 0, 80, 80);
         static Vector2 glitchSpeed = new Vector2(64, 32);
         static Vector2 glitchFriction = new Vector2(0.8f, 1f);
@@ -42,9 +42,9 @@ namespace GameOne
         {
             // set the segments and frame size
             spriteSheet.addSegment(glitchFrameSize, new Point(0, 0), new Point(11,0), 20);
-            spriteSheet.addSegment(glitchFrameSize, new Point(0, 1), new Point(18, 1), 50);
-            spriteSheet.addSegment(glitchFrameSize, new Point(0, 2), new Point(33, 2), 40);
-            spriteSheet.addSegment(glitchFrameSize, new Point(0, 4), new Point(2, 5), 50);
+            spriteSheet.addSegment(glitchFrameSize, new Point(0, 1), new Point(19, 1), 20);
+            spriteSheet.addSegment(glitchFrameSize, new Point(0, 2), new Point(31, 2), 42);
+            spriteSheet.addSegment(glitchFrameSize, new Point(0, 3), new Point(40, 3), 20);
 
             // define the states
             states = new AbstractState[NUM_STATES];
@@ -117,14 +117,13 @@ namespace GameOne
             public WalkingState(GlitchPlayer player)
                 : base(player)
             {
-                // define the standing still frame
                 stillFrame = new Point(14, 0);
             }
 
             public override void Update(GameTime gameTime, Rectangle clientBounds)
             {
                 // pause animation if the sprite is not moving
-                if (player.direction.X == 0 || !player.onGround)
+                if (player.direction.X == 0)
                 {
                     player.pauseAnimation = true;
                     player.currentFrame = stillFrame; // standing frame
@@ -135,17 +134,21 @@ namespace GameOne
                     player.pauseAnimation = false;
                 }
 
-                // perform a jump?
-                if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Space))
+                // transition to jumping state
+                if (Keyboard.GetState().IsKeyDown(Keys.Space) || GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
                 {
-                    if (player.onGround)
-                    {
-                        timeSinceLastMove = 0;
-                        player.switchState(GlitchPlayerState.Jumping);
-                        player.velocity.Y += -400f;
-                    }
+                   
+                    timeSinceLastMove = 0;
+                    player.switchState(GlitchPlayerState.Jumping);
                 }
-           
+
+                //transition to climbing state
+                if (Keyboard.GetState().IsKeyDown(Keys.W))
+                {
+                    timeSinceLastMove = 0;
+                    player.switchState(GlitchPlayerState.Climbing);
+                }
+
                 // transition to sleep state?
                 timeSinceLastMove += gameTime.ElapsedGameTime.Milliseconds;
                 if (timeSinceLastMove > timeForSleep)
@@ -169,20 +172,17 @@ namespace GameOne
 
             public override void Update(GameTime gameTime, Rectangle clientBounds)
             {
-                // just started Sleeping state
                 if (fallingToSleep)
                 {
-                    sleepingPosition = player.position;  // remember the current position
+                    sleepingPosition = player.position;
                     fallingToSleep = false;
                 }
 
-                // have we hit the end of the animation?
                 if (player.currentFrame == player.spriteSheet.currentSegment.endFrame)
                 {
                     player.pauseAnimation = true;
                 }
 
-                // did we move? if so, switch to Walking state
                 if (sleepingPosition != player.position)
                 {
                     fallingToSleep = true;
@@ -195,35 +195,85 @@ namespace GameOne
         /* Jumping State */
         private class JumpingState : AbstractState
         {
-           
+            private int direction;
+
             public JumpingState(GlitchPlayer player)
                 : base(player)
             {
+
             }
 
             public override void Update(GameTime gameTime, Rectangle clientBounds)
             {
-                // animate once through -- then go to standing still frame
+                player.pauseAnimation = false;
+
+                if (player.effects == SpriteEffects.None)
+                {
+                    direction = 1;
+                }
+                else
+                {
+                    direction = -1;
+                }
+
+                if (player.currentFrame.Y == 2)
+                {
+                    player.position.Y--;
+                    player.position.X = player.position.X + direction;
+                }
+                else
+                {
+                    player.position.Y++;
+                    player.position.X = player.position.X + direction;
+                }
+
+
+                //transition back to walking state
                 if (player.currentFrame == player.spriteSheet.currentSegment.endFrame)
                 {
                     player.switchState(GlitchPlayerState.Walking);
                     player.currentFrame = new Point(14, 0);  // start standing still
                 }
             }
+        
         }
 
         /* Climbing State */
         private class ClimbingState : AbstractState
         {
 
+            Point stillFrame;
+            int timeSinceLastMove = 0;
+            const int timeForWalk = 500;
+
             public ClimbingState(GlitchPlayer player)
                 : base(player)
             {
+                stillFrame = new Point(4, 1);
             }
 
             public override void Update(GameTime gameTime, Rectangle clientBounds)
             {
-                
+                player.pauseAnimation = false;
+
+                if (player.direction.Y == 0)
+                {
+                    player.pauseAnimation = true;
+                    player.currentFrame = stillFrame; // standing frame
+                }
+                else
+                {
+                    timeSinceLastMove = 0;
+                    player.pauseAnimation = false;
+                }
+
+                //transition back to walking state
+                timeSinceLastMove += gameTime.ElapsedGameTime.Milliseconds;
+                if (timeSinceLastMove > timeForWalk)
+                {
+                    timeSinceLastMove = 0;
+                    player.switchState(GlitchPlayerState.Walking);
+                }
             }
         }
     }

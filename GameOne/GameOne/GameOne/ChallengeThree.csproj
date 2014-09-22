@@ -113,6 +113,8 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GlitchPlayer.cs" />
     <Compile Include="Platform.cs" />
+    <Compile Include="Platform2.cs" />
+    <Compile Include="Platform3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Sprite.cs" />

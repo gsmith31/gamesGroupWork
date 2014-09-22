@@ -6,8 +6,6 @@ C:\420_fall14\GameOne\GameOne\GameOne\bin\x86\Debug\GameOne.pdb
 C:\420_fall14\GameOne\GameOne\GameOne\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\420_fall14\GameOne\GameOne\GameOne\obj\x86\Debug\GameOne.exe
 C:\420_fall14\GameOne\GameOne\GameOne\obj\x86\Debug\GameOne.pdb
-C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\Content\Images\LadyZ.xnb
-C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\Content\Images\chicken_walk.xnb
 C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\Content\Images\result.xnb
 C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\GameOne.exe
 C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\GameOne.pdb

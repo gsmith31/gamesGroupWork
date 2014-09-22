@@ -2,31 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Images\LadyZ.png</Source>
-      <Name>Images\LadyZ</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\Content\Images\LadyZ.xnb</Output>
-      <Time>2014-09-22T10:33:14.2173579-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\chicken_walk.png</Source>
-      <Name>Images\chicken_walk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\Content\Images\chicken_walk.xnb</Output>
-      <Time>2014-09-22T10:33:14.2173579-04:00</Time>
-    </Item>
-    <Item>
       <Source>Images\result.png</Source>
       <Name>Images\result</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\Content\Images\result.xnb</Output>
-      <Time>2014-09-22T10:33:14.2329489-04:00</Time>
+      <Time>2014-09-22T13:46:49.0643478-04:00</Time>
     </Item>
     <Item>
       <Source>Images\platform.png</Source>
@@ -35,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\gamesGroupWork\GameOne\GameOne\GameOne\bin\x86\Debug\Content\Images\platform.xnb</Output>
-      <Time>2014-09-22T10:59:57.0244792-04:00</Time>
+      <Time>2014-09-22T13:46:49.0603478-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

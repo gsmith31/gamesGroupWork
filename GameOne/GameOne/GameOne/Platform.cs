@@ -10,9 +10,9 @@ namespace GameOne
     class Platform : StationarySprite
     {
         public Platform(Texture2D texture)
-            : base(new SpriteSheet(texture, new Point(0, 0), 1.0f), new Vector2(0, 50), new CollisionOffset(50, 0, 50, 50))
+            : base(new SpriteSheet(texture, new Point(0, 0), 1.0f), new Vector2(0, 700), new CollisionOffset(50, 0, 50, 50))
         {
-            Point frameSize = new Point(148,110);
+            Point frameSize = new Point(511,61);
             spriteSheet.addSegment(frameSize, new Point(0, 0), new Point(0, 0), 0);
             spriteSheet.setCurrentSegment(0);
         }
