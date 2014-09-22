@@ -43,7 +43,8 @@ namespace GameOne
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
             player = new GlitchPlayer(Game.Content.Load<Texture2D>(@"Images/result"));
-            spriteList.Add(new Chicken(Game.Content.Load<Texture2D>(@"Images/chicken_walk")));
+            //spriteList.Add(new Chicken(Game.Content.Load<Texture2D>(@"Images/chicken_walk")));
+            spriteList.Add(new Platform(Game.Content.Load<Texture2D>(@"Images/platform")));
 
             base.LoadContent();
         }
